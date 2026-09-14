@@ -1,4 +1,4 @@
-# WonderEnd-0-PC-Optimization-Fix
+# WonderEnd-0-PC-Optimization-Fix(coreFix)
 Фикс-патч swf файла WonderEnd0, созданное компанией Lunime, который оптимизирует скрипты игры на пк. 
 
 **!ДИСКЛЕЙМЕР/отказ от отвественности!**
