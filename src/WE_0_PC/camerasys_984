@@ -1,0 +1,173 @@
+package WE_0_PC_fla
+{
+   import flash.accessibility.*;
+   import flash.desktop.*;
+   import flash.display.*;
+   import flash.errors.*;
+   import flash.events.*;
+   import flash.filters.*;
+   import flash.geom.*;
+   import flash.media.*;
+   import flash.net.*;
+   import flash.net.drm.*;
+   import flash.system.*;
+   import flash.text.*;
+   import flash.text.ime.*;
+   import flash.ui.*;
+   import flash.utils.*;
+   
+   [Embed(source="/_assets/assets.swf", symbol="symbol3959")]
+   public dynamic class camerasys_984 extends MovieClip
+   {
+      
+      public var cam:MovieClip;
+      public var cambt1:MovieClip;
+      public var cambt2:MovieClip;
+      public var cambt3:MovieClip;
+      public var closebt:MovieClip;
+      public var lefttali:MovieClip;
+      public var righttali:MovieClip;
+      public var soundbt:MovieClip;
+      
+      public function camerasys_984()
+      {
+         super();
+         addFrameScript(0,this.frame1,1,this.frame2,2,this.frame3,14,this.frame15,15,this.frame16,27,this.frame28);
+      }
+      
+      public function closebtx(param1:MouseEvent = null) : void
+      {
+         removePCListeners();
+         parent.closecam();
+      }
+      
+      public function handleCamKeys(param1:KeyboardEvent) : void
+      {
+         if(parent.opencam != 3) return;
+         
+         if(param1.keyCode == Keyboard.NUMBER_1 || param1.keyCode == Keyboard.NUMPAD_1) {
+            triggerCam(1);
+         } else if(param1.keyCode == Keyboard.NUMBER_2 || param1.keyCode == Keyboard.NUMPAD_2) {
+            triggerCam(2);
+         } else if(param1.keyCode == Keyboard.NUMBER_3 || param1.keyCode == Keyboard.NUMPAD_3) {
+            triggerCam(3);
+         } else if(param1.keyCode == Keyboard.SPACE || param1.keyCode == Keyboard.ESCAPE || param1.keyCode == 69) {
+            closebtx();
+         }
+      }
+      
+      private function triggerCam(param1:int) : void
+      {
+         if(parent.tutorialx >= 2) return;
+         if(parent.campage != param1)
+         {
+            parent.stopsfx();
+            parent.campage = param1;
+            this.cam.fadex.gotoAndPlay(3);
+            this.cam.updatepage();
+            this.cam.camtext.gotoAndStop(parent.campage);
+            parent.sfx = 25;
+            parent.playsfx();
+            
+            this.cam.camx1.gotoAndStop(param1 == 1 ? 2 : 1);
+            this.cam.camx2.gotoAndStop(param1 == 2 ? 2 : 1);
+            this.cam.camx3.gotoAndStop(param1 == 3 ? 2 : 1);
+         }
+      }
+      
+      public function cambt1x(param1:MouseEvent) : void { triggerCam(1); }
+      public function cambt2x(param1:MouseEvent) : void { triggerCam(2); }
+      public function cambt3x(param1:MouseEvent) : void { triggerCam(3); }
+      
+      public function soundbtx(param1:MouseEvent) : void
+      {
+         if(parent.tutorialx >= 2 && parent.chatmsg == 5)
+         {
+            this.cam.soundx.gotoAndPlay(2);
+            this.cam.cam.monster1.gotoAndPlay("tut");
+            this.cam.fadex.gotoAndPlay(3);
+            this.soundbt.visible = false;
+            this.cam.c1.gotoAndStop(3);
+            parent.chatmsg = 6;
+            parent.maxchat = 2;
+            parent.chat = 1;
+            parent.starttext();
+         }
+         else
+         {
+            parent.pushsound();
+            this.cam.updatepage();
+         }
+      }
+      
+      private function removePCListeners() : void
+      {
+         stage.removeEventListener(KeyboardEvent.KEY_DOWN, this.handleCamKeys);
+         this.closebt.removeEventListener(MouseEvent.MOUSE_DOWN,this.closebtx);
+         this.cambt1.removeEventListener(MouseEvent.MOUSE_DOWN,this.cambt1x);
+         this.cambt2.removeEventListener(MouseEvent.MOUSE_DOWN,this.cambt2x);
+         this.cambt3.removeEventListener(MouseEvent.MOUSE_DOWN,this.cambt3x);
+         this.soundbt.removeEventListener(MouseEvent.MOUSE_DOWN,this.soundbtx);
+      }
+      
+      internal function frame1() : * { gotoAndStop(2); }
+      internal function frame2() : * { stop(); }
+      
+      internal function frame3() : *
+      {
+         this.cam.fadex.gotoAndPlay(3);
+         this.cam.updatepage();
+         parent.sfx = 25;
+         parent.playsfx();
+         if(parent.tutorialx >= 2)
+         {
+            this.cam.camtext.gotoAndStop(1);
+            this.cam.c2.gotoAndStop(3);
+            this.cam.c3.gotoAndStop(3);
+            this.cam.cam.monster1.visible = true;
+            this.cam.cam.monster1.x = 128;
+         }
+         else
+         {
+            this.cam.camtext.gotoAndStop(parent.campage);
+            this.cam["camx" + parent.campage].gotoAndStop(2);
+         }
+      }
+      
+      internal function frame15() : *
+      {
+         stop();
+         parent.opencam = 3;
+         
+         stage.addEventListener(KeyboardEvent.KEY_DOWN, this.handleCamKeys);
+         
+         if(parent.tutorialx >= 2)
+         {
+            parent.campage = 1;
+            this.cam.camx1.gotoAndStop(2);
+            this.cambt1.visible = false;
+            this.cambt2.visible = false;
+            this.cambt3.visible = false;
+            this.closebt.visible = false;
+            this.cam.camx1.gotoAndStop(2);
+            this.cam.camx2.gotoAndStop(1);
+            this.cam.camx3.gotoAndStop(1);
+         }
+         
+         this.closebt.addEventListener(MouseEvent.MOUSE_DOWN,this.closebtx);
+         this.cambt1.addEventListener(MouseEvent.MOUSE_DOWN,this.cambt1x);
+         this.cambt2.addEventListener(MouseEvent.MOUSE_DOWN,this.cambt2x);
+         this.cambt3.addEventListener(MouseEvent.MOUSE_DOWN,this.cambt3x);
+         this.soundbt.addEventListener(MouseEvent.MOUSE_DOWN,this.soundbtx);
+      }
+      
+      internal function frame16() : * { parent.stopsfx(); }
+      
+      internal function frame28() : *
+      {
+         removePCListeners();
+         parent.opencam = 1;
+         gotoAndStop(2);
+      }
+   }
+}
