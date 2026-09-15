@@ -1,0 +1,215 @@
+package WE_0_PC_fla
+{
+   import flash.accessibility.*;
+   import flash.desktop.*;
+   import flash.display.*;
+   import flash.errors.*;
+   import flash.events.*;
+   import flash.filters.*;
+   import flash.geom.*;
+   import flash.media.*;
+   import flash.net.*;
+   import flash.net.drm.*;
+   import flash.system.*;
+   import flash.text.*;
+   import flash.text.ime.*;
+   import flash.ui.*;
+   import flash.utils.*;
+   
+   [Embed(source="/_assets/assets.swf", symbol="symbol5064")]
+   public dynamic class cutscenex_1218 extends MovieClip
+   {
+      
+      public var aend:MovieClip;
+      
+      public var bg:MovieClip;
+      
+      public var candle1:MovieClip;
+      
+      public var candle2:MovieClip;
+      
+      public var candle3:MovieClip;
+      
+      public var candle4:MovieClip;
+      
+      public var candle5:MovieClip;
+      
+      public var char:MovieClip;
+      
+      public var dimx:MovieClip;
+      
+      public var enes:MovieClip;
+      
+      public var err1:MovieClip;
+      
+      public var err2:MovieClip;
+      
+      public var err3:MovieClip;
+      
+      public var err4:MovieClip;
+      
+      public var err5:MovieClip;
+      
+      public var fade:MovieClip;
+      
+      public var lemoend:MovieClip;
+      
+      public var lifebgfloor:MovieClip;
+      
+      public var lockerx:MovieClip;
+      
+      public var mirror:MovieClip;
+      
+      public var notepicx:MovieClip;
+      
+      public var npc1:MovieClip;
+      
+      public var npc2:MovieClip;
+      
+      public var npc3:MovieClip;
+      
+      public var npc4:MovieClip;
+      
+      public var npc5:MovieClip;
+      
+      public var nullalanx:MovieClip;
+      
+      public var nullbg:MovieClip;
+      
+      public var nullending:MovieClip;
+      
+      public var photox:MovieClip;
+      
+      public var plate:MovieClip;
+      
+      public var portalx:MovieClip;
+      
+      public var r1:MovieClip;
+      
+      public var redlight3:MovieClip;
+      
+      public var ripped:MovieClip;
+      
+      public var schoolx:MovieClip;
+      
+      public var screenx:MovieClip;
+      
+      public var soulx1:MovieClip;
+      
+      public var soulx2:MovieClip;
+      
+      public var soulx3:MovieClip;
+      
+      public var soulx4:MovieClip;
+      
+      public var soulx5:MovieClip;
+      
+      public var staticx:MovieClip;
+      
+      public var storybook:MovieClip;
+      
+      public var tvx:MovieClip;
+      
+      public var xx:MovieClip;
+      
+      public var yumestatic:MovieClip;
+      
+      public var yuniblack1:MovieClip;
+      
+      public var yuniblack2:MovieClip;
+      
+      public function cutscenex_1218()
+      {
+         super();
+         addFrameScript(12,this.frame13,144,this.frame145,237,this.frame238,243,this.frame244);
+      }
+      
+      internal function frame13() : *
+      {
+         if(parent && parent.storypick == 54 && this.npc3)
+         {
+            if(this.npc3.head)
+            {
+               this.npc3.head.gotoAndStop(2);
+            }
+            if(this.npc3.backhair)
+            {
+               this.npc3.backhair.gotoAndStop(2);
+            }
+            if(this.npc3.shoulder)
+            {
+               this.npc3.shoulder.gotoAndStop(2);
+            }
+            if(this.npc3.backshoulder)
+            {
+               this.npc3.backshoulder.gotoAndStop(2);
+            }
+            if(this.npc3.handx)
+            {
+               this.npc3.handx.gotoAndStop(2);
+            }
+            if(this.npc3.backhand)
+            {
+               this.npc3.backhand.gotoAndStop(2);
+            }
+            if(this.npc3.belt)
+            {
+               this.npc3.belt.gotoAndStop(2);
+            }
+            if(this.npc3.thigh)
+            {
+               this.npc3.thigh.gotoAndStop(2);
+            }
+            if(this.npc3.backthigh)
+            {
+               this.npc3.backthigh.gotoAndStop(2);
+            }
+            if(this.npc3.foot)
+            {
+               this.npc3.foot.gotoAndStop(2);
+            }
+            if(this.npc3.backfoot)
+            {
+               this.npc3.backfoot.gotoAndStop(2);
+            }
+            if(this.npc3.body)
+            {
+               this.npc3.body.gotoAndStop(2);
+            }
+         }
+      }
+      
+      internal function frame145() : *
+      {
+         if(parent && this.notepicx)
+         {
+            this.notepicx.gotoAndStop(parent.lang);
+         }
+      }
+      
+      internal function frame238() : *
+      {
+         if(parent && parent.storypick == 81 && this.npc1)
+         {
+            this.npc1.visible = false;
+         }
+      }
+      
+      internal function frame244() : *
+      {
+         if(this.enes)
+         {
+            this.enes.gotoAndPlay(2);
+         }
+         if(this.bg && this.bg.virus)
+         {
+            this.bg.virus.gotoAndPlay(3);
+         }
+         if(this.npc1)
+         {
+            this.npc1.gotoAndPlay("hurtstill");
+         }
+      }
+   }
+}
+
