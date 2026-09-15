@@ -1,0 +1,121 @@
+package WE_0_PC_fla
+{
+   import flash.accessibility.*;
+   import flash.desktop.*;
+   import flash.display.*;
+   import flash.errors.*;
+   import flash.events.*;
+   import flash.filters.*;
+   import flash.geom.*;
+   import flash.media.*;
+   import flash.net.*;
+   import flash.net.drm.*;
+   import flash.system.*;
+   import flash.text.*;
+   import flash.text.ime.*;
+   import flash.ui.*;
+   import flash.utils.*;
+   
+   [Embed(source="/_assets/assets.swf", symbol="symbol2235")]
+   public dynamic class cautionscreen_488 extends MovieClip
+   {
+      
+      public var backbt:MovieClip;
+      public var continuebt:MovieClip;
+      public var exitbt:MovieClip;
+      public var playbt:MovieClip;
+      public var warnx:MovieClip;
+      public var xx:MovieClip;
+      public var xxx:MovieClip;
+      
+      public function cautionscreen_488()
+      {
+         super();
+         addFrameScript(0,this.frame1,46,this.frame47,61,this.frame62,75,this.frame76,103,this.frame104);
+      }
+
+      private function removeAllListeners() : void
+      {
+         if(this.continuebt) this.continuebt.removeEventListener(MouseEvent.MOUSE_DOWN, this.continuebtx);
+         if(this.playbt) this.playbt.removeEventListener(MouseEvent.MOUSE_DOWN, this.playbtx);
+         if(this.exitbt) this.exitbt.removeEventListener(MouseEvent.MOUSE_DOWN, this.exitbtx);
+         if(this.backbt) this.backbt.removeEventListener(MouseEvent.MOUSE_DOWN, this.backbtx);
+      }
+      
+      public function continuebtx(param1:MouseEvent) : void
+      {
+         removeAllListeners();
+         MovieClip(root).sfx = 3;
+         MovieClip(root).playsfx();
+         gotoAndPlay("start2");
+      }
+      
+      public function playbtx(param1:MouseEvent) : void
+      {
+         removeAllListeners();
+         if(parent.firsttime == 1)
+         {
+            parent.sfx = 8;
+            parent.playsfx();
+            MovieClip(root).trans.gotoAndPlay("memory");
+         }
+         else
+         {
+            parent.sfx = 1;
+            parent.playsfx();
+            parent.cautionopen = 1;
+            gotoAndStop(2);
+         }
+      }
+      
+      public function exitbtx(param1:MouseEvent) : void
+      {
+         removeAllListeners();
+         NativeApplication.nativeApplication.exit(0);
+      }
+      
+      public function backbtx(param1:MouseEvent) : void
+      {
+         removeAllListeners();
+         parent.sfx = 4;
+         parent.playsfx();
+         gotoAndStop("picklang");
+      }
+      
+      internal function frame1() : *
+      {
+         gotoAndStop(2);
+      }
+      
+      internal function frame47() : *
+      {
+         stop();
+         parent.cautionopen = 2;
+         removeAllListeners();
+         this.continuebt.addEventListener(MouseEvent.MOUSE_DOWN, this.continuebtx);
+         this.xxx.gotoAndStop(parent.lang);
+      }
+      
+      internal function frame62() : *
+      {
+         this.warnx.gotoAndStop(parent.lang);
+         this.xx.gotoAndStop(parent.lang);
+      }
+      
+      internal function frame76() : *
+      {
+         stop();
+         parent.cautionopen = 1;
+         removeAllListeners();
+         this.playbt.addEventListener(MouseEvent.MOUSE_DOWN, this.playbtx);
+         this.exitbt.addEventListener(MouseEvent.MOUSE_DOWN, this.exitbtx);
+         this.backbt.addEventListener(MouseEvent.MOUSE_DOWN, this.backbtx);
+      }
+      
+      internal function frame104() : *
+      {
+         removeAllListeners();
+         gotoAndPlay("start3x");
+      }
+   }
+}
