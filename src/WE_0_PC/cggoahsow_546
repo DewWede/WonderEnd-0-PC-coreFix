@@ -1,0 +1,130 @@
+package WE_0_PC_fla
+{
+   import flash.accessibility.*;
+   import flash.desktop.*;
+   import flash.display.*;
+   import flash.errors.*;
+   import flash.events.*;
+   import flash.filters.*;
+   import flash.geom.*;
+   import flash.media.*;
+   import flash.net.*;
+   import flash.net.drm.*;
+   import flash.system.*;
+   import flash.text.*;
+   import flash.text.ime.*;
+   import flash.ui.*;
+   import flash.utils.*;
+   
+   [Embed(source="/_assets/assets.swf", symbol="symbol2759")]
+   public dynamic class cggoahsow_546 extends MovieClip
+   {
+      
+      public var cgx:MovieClip;
+      public var closebt:MovieClip;
+      public var leftbt:MovieClip;
+      public var rightbt:MovieClip;
+      public var maxcg:*;
+      
+      public function cggoahsow_546()
+      {
+         super();
+         addFrameScript(0,this.frame1,1,this.frame2,2,this.frame3);
+      }
+      
+      private function clearListeners() : void
+      {
+         stage.removeEventListener(KeyboardEvent.KEY_DOWN, this.handleGalleryKeys);
+         if(this.leftbt) this.leftbt.removeEventListener(MouseEvent.MOUSE_DOWN, this.leftbtx);
+         if(this.rightbt) this.rightbt.removeEventListener(MouseEvent.MOUSE_DOWN, this.rightbtx);
+         if(this.closebt) this.closebt.removeEventListener(MouseEvent.MOUSE_DOWN, this.closebtx);
+      }
+      
+      public function leftbtx(param1:MouseEvent = null) : void
+      {
+         --parent.cgpick;
+         if(parent.cgpick < 1)
+         {
+            parent.cgpick = this.maxcg;
+         }
+         this.cgx.gotoAndStop(parent.cgpick);
+         this.checkcgpage();
+      }
+      
+      public function rightbtx(param1:MouseEvent = null) : void
+      {
+         parent.cgpick += 1;
+         if(parent.cgpick > this.maxcg)
+         {
+            parent.cgpick = 1;
+         }
+         this.cgx.gotoAndStop(parent.cgpick);
+         this.checkcgpage();
+      }
+      
+      public function closebtx(param1:MouseEvent = null) : void
+      {
+         clearListeners();
+         gotoAndStop(2);
+      }
+      
+      public function handleGalleryKeys(param1:KeyboardEvent) : void
+      {
+         if(currentFrame != 3) return;
+         
+         if(param1.keyCode == Keyboard.LEFT || param1.keyCode == 65) {
+            leftbtx();
+         } else if(param1.keyCode == Keyboard.RIGHT || param1.keyCode == 68) {
+            rightbtx();
+         } else if(param1.keyCode == Keyboard.ESCAPE || param1.keyCode == Keyboard.SPACE || param1.keyCode == 69) {
+            closebtx();
+         }
+      }
+      
+      public function checkcgpage() : void
+      {
+         if(parent.cgpick <= 12)
+         {
+            parent.cgpage = 1;
+         }
+         else if(parent.cgpick >= 13 && parent.cgpick <= 24)
+         {
+            parent.cgpage = 2;
+         }
+         else if(parent.cgpick >= 25 && parent.cgpick <= 36)
+         {
+            parent.cgpage = 3;
+         }
+         else if(parent.cgpick >= 37)
+         {
+            parent.cgpage = 4;
+         }
+         parent.updatecgpage();
+      }
+      
+      internal function frame1() : *
+      {
+         gotoAndStop(2);
+      }
+      
+      internal function frame2() : *
+      {
+         stop();
+      }
+      
+      internal function frame3() : *
+      {
+         this.maxcg = 44;
+         if(MovieClip(root).secretx >= 6)
+         {
+            this.maxcg = 48;
+         }
+         
+         clearListeners();
+         stage.addEventListener(KeyboardEvent.KEY_DOWN, this.handleGalleryKeys);
+         this.leftbt.addEventListener(MouseEvent.MOUSE_DOWN,this.leftbtx);
+         this.rightbt.addEventListener(MouseEvent.MOUSE_DOWN,this.rightbtx);
+         this.closebt.addEventListener(MouseEvent.MOUSE_DOWN,this.closebtx);
+      }
+   }
+}
